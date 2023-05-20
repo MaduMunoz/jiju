@@ -1,0 +1,83 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <style type="text/css">
+
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap');
+
+    :root {
+      --fuente: "DM Sans", sans-serif;
+    }
+
+    body{
+      background: linear-gradient(#f0ebe6, #c4b9ad);
+      padding: 40px ;
+      font-size: 55px;
+      color: blue;
+      font-family: var(--fuente);
+    }
+
+    #cambiaValoresId { /*estilo del boton con la fuente DM Sans*/
+      border:none;
+      border-radius: 2px 2px; 
+      box-shadow: 0 0 2px #b8aea3;
+      font-family: var(--fuente);
+      color: blue;
+    }
+
+    #cambiaEstilosId { /*estilo del boton con la fuente DM Sans*/
+      border:none;
+      border-radius: 2px 2px;
+      box-shadow: 0 0 2px #b8aea3;
+      font-family: var(--fuente);
+      color: blue;
+    }
+  </style>
+
+</head>
+
+
+
+<body>
+  <p id="texto"><b id="muestraNombres">Persona </b>  come  <b id="muestraNumeros"> x </b> <b id="muestraComidas"> comida </b> al día...</p>
+
+<button type="button" id="cambiaValoresId" onclick="javascript:cambiaValores()">Cambiar Valores</button>
+<button type="button" id="cambiaEstilosId" onclick="javascript:cambiaEstilos()">Cambiar Estilos</button>
+
+  <script type="text/javascript">
+
+
+    // LISTAS CON VALORES (ojo, listas deben tener misma cantidad de elementos)
+    var nombres =  ["Olivia", "Pablo", "Elisa", "María José", "Ignacio", "Vicente", "Magdalena"]; //lista nombres personas
+    var colores =  ["OrangeRed", "FireBrick", "Gold", "SeaGreen", "RoyalBlue", "DarkMagenta", "PaleVioletRed"]; //lista colores 
+    var comidas =  ["lechugas", "tomates", "ajos", "pimentones", "zanahorias", "papas", "cebolla"]; 
+
+    // SELECIONA ELEMENTOS A MODIFICAR
+    var elemNombre = document.getElementById("muestraNombres"); //donde se mostraran nombres 
+    var elemNumero = document.getElementById("muestraNumeros"); //donde se mostraran numeros
+    var elemComida = document.getElementById("muestraComidas"); //donde se mostraran comidas
+
+    // CANTIDADA DE ELEMENTOS EN LAS LISTAS 
+    var elemCant   = nombres.length ; 
+
+    //Funcion para cambiar valores de texto...
+    function cambiaValores() {
+      var palabraSelector     = Math.floor(Math.random() * elemCant); //entrega numero aleatorio...
+      elemNombre.innerHTML = nombres[palabraSelector]; //selecciona nombre 
+      elemNumero.innerHTML = 1 + palabraSelector * elemCant; //selecciona cantidad comida  
+      elemComida.innerHTML = comidas[palabraSelector]; //selecciona comida 
+     };
+
+    //Funcion para cambiar colores de nombre y numero
+    function cambiaEstilos() {
+      var colorSelector  = Math.floor(Math.random()*4); // numero aleatorio 
+      elemNombre.style.color = colores[colorSelector];  
+      elemNumero.style.color = colores[colorSelector]; 
+      elemComida.style.color = colores[colorSelector];  //agregar para que cambien las comidas
+    };
+  </script>
+
+
+</body>
+</html>
